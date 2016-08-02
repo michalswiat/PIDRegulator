@@ -9,6 +9,7 @@ class PID
   PID(uint32_t setpoint, uint32_t maxValue, uint32_t minValue,
       float p, float i, float d);
   uint32_t getValue(uint32_t input);
+  void setPoint(uint32_t setpoint);
   
   uint32_t period = 1000;
 

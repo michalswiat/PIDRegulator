@@ -44,3 +44,8 @@ uint32_t PID::getValue(uint32_t input)
 
   return (uint32_t)(output);
 }
+
+void PID::setPoint(uint32_t setpoint)
+{
+  this->setpoint = setpoint;
+}
