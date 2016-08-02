@@ -1,0 +1,1 @@
+Kicad hardware files
