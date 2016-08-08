@@ -1,0 +1,30 @@
+import serial
+import re
+
+port = serial.Serial(
+    port = '/dev/ttyACM0',
+    baudrate = 9600,
+    parity = serial.PARITY_NONE,
+    stopbits = serial.STOPBITS_ONE,
+    bytesize = serial.EIGHTBITS
+)
+
+port.isOpen()
+
+out = ''
+rpm = []
+counter = 0
+while counter < 100:
+    sign = ''
+    while port.inWaiting() > 0:
+        sign = port.read(1)
+        out += sign
+
+    if sign == '\n':
+        sign = ''
+        print out
+        counter += 1
+        rpm.add(int(re.search(r'\d+', out).group()))
+        out = ''
+
+print rpm
